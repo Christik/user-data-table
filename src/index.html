@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Data Table</title>
+</head>
+<body>
+    <div class="container">
+        <div class="section">
+            <div class="section__head">
+                <h1 class="section__title">
+                    User List
+                </h1>
+                <div class="section__buttons">
+                    <button type="button"
+                            class="button">
+                        Show Female
+                    </button>
+                    <button type="button"
+                            class="button">
+                        Add user
+                    </button>
+                </div><!--.section__buttons-->
+            </div><!--.section__head-->
+
+            <div class="section__body">
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Photo</th>
+                                <th class="th-sort">
+                                    Name
+                                    <button class="button-sort">
+                                        Sort
+                                        <svg viewBox="0 0 24 24"
+                                            class="button-sort__asc">
+                                            <path d="M17.6568 8.96219L16.2393 10.3731L12.9843 7.10285L12.9706 20.7079L10.9706 20.7059L10.9843 7.13806L7.75404 10.3532L6.34314 8.93572L12.0132 3.29211L17.6568 8.96219Z" />
+                                        </svg>
+                                        <svg viewBox="0 0 24 24"
+                                            class="button-sort__desc">
+                                            <path d="M17.6568 8.96219L16.2393 10.3731L12.9843 7.10285L12.9706 20.7079L10.9706 20.7059L10.9843 7.13806L7.75404 10.3532L6.34314 8.93572L12.0132 3.29211L17.6568 8.96219Z" />
+                                        </svg>
+                                    </button>
+                                </th>
+                                <th class="th-sort">
+                                    Date of Birth
+                                    <button class="button-sort button-sort_asc">
+                                        Sort
+                                        <svg viewBox="0 0 24 24"
+                                            class="button-sort__asc">
+                                            <path d="M17.6568 8.96219L16.2393 10.3731L12.9843 7.10285L12.9706 20.7079L10.9706 20.7059L10.9843 7.13806L7.75404 10.3532L6.34314 8.93572L12.0132 3.29211L17.6568 8.96219Z" />
+                                        </svg>
+                                        <svg viewBox="0 0 24 24"
+                                            class="button-sort__desc">
+                                            <path d="M17.6568 8.96219L16.2393 10.3731L12.9843 7.10285L12.9706 20.7079L10.9706 20.7059L10.9843 7.13806L7.75404 10.3532L6.34314 8.93572L12.0132 3.29211L17.6568 8.96219Z" />
+                                        </svg>
+                                    </button>
+                                </th>
+                                <th>Gender</th>
+                                <th>ID</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tdoby>
+                            <tr>
+                                <td class="td-photo">
+                                    <div class="photo"></div>
+                                </td>
+                                <td>
+                                    Lisbon Taylor
+                                </td>
+                                <td>
+                                    07/10/1989
+                                </td>
+                                <td>
+                                    <div class="badge badge_blue">Male</div>
+                                </td>
+                                <td>
+                                    0390511T
+                                </td>
+                                <td>
+                                    <button type="button"
+                                            class="button-action"
+                                            title="Delete user">
+                                        Detele
+                                        <svg viewBox="0 0 24 24" class="button-action__icon">
+                                            <path d="M18,22H6V8H4v13.7C4,22.8,4.9,24,6,24h12c1.1,0,2-1.2,2-2.3V8h-2V22z M15,4V2H9v2H2v2h20V4H15z M9,10v10h2V10H9  z M13,10v10h2V10H13z" />
+                                        </svg>                                
+                                    </button>
+                                </td>
+                            </tr>
+                        </tdoby>
+                    </table>
+                </div><!--.table-responsive-->
+            </div><!--.section__body-->
+        </div><!--.section-->
+    </div><!--.container-->
+</body>
+</html>

@@ -1,0 +1,25 @@
+//
+// Badges
+//
+
+.badge {
+    display: inline-block;
+    height: 1.1rem;
+    line-height: 1.1rem;
+    color: @color-green;
+    font-weight: 500;
+    font-size: .65rem;
+    background: fade(@color-green, 10%);
+    padding: 0 .5em;
+    border-radius: .15rem;
+
+    &_blue {
+        color: @color-blue;
+        background-color: fade(@color-blue, 10%);
+    }
+
+    &_pink {
+        color: @color-pink;
+        background-color: fade(@color-pink, 10%);
+    }
+}

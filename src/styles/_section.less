@@ -1,0 +1,33 @@
+//
+// Section
+//
+
+.section {
+    background: #fff;
+    border-radius: .25rem;
+    box-shadow: 0 .2rem .8rem fade(#a9b8c8, 15%);
+}
+.section__head,
+.section__body {
+    padding: 1rem;
+}
+.section__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-bottom: solid 1px @color-border;
+}
+.section__title {
+    margin: .5rem 1rem .5rem 0;
+    font-size: .9rem;
+    font-weight: 600;
+}
+.section__buttons {
+    display: flex;
+    align-items: center;
+
+    .button:not(:first-child) {
+        margin-left: .5rem;
+    }
+}

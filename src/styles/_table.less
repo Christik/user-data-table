@@ -1,0 +1,131 @@
+//
+// Table Responsive Wrapper
+//
+
+.table-responsive {
+    overflow: auto;
+    margin: 0 -1rem;
+    padding: 0 1rem;
+}
+
+//
+// Table
+//
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: solid 1px @color-border;
+    text-align: left;
+    padding: .6rem;
+    font-size: .7rem;
+}
+th {
+    vertical-align: bottom;
+    font-weight: 600;
+}
+td {
+    vertical-align: middle;
+    font-weight: 500;
+}
+
+//
+// Photo
+//
+
+.td-photo {
+    width: 3.7rem;
+}
+
+.photo {
+    background: @color-border;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+    }
+}
+
+//
+// Button Sort
+//
+
+.th-sort {
+    position: relative;
+    padding-right: 2.2rem;
+}
+
+.button-sort {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    border: none;
+    background: none;
+    overflow: hidden;
+    text-indent: -1000px;
+    position: absolute;
+    right: .6rem;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.button-sort__asc,
+.button-sort__desc {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 100%;
+    width: 100%;
+
+    path {
+        fill: fade(@body-color, 30%);
+    }
+}
+.button-sort__desc {
+    left: 25%;
+}
+.button-sort__asc {
+    transform: translate(-50%,-50%) rotate(180deg);
+    left: 75%
+}
+
+// asc
+.button-sort_asc {
+    .button-sort__asc path {
+        fill: @body-color;
+    }
+}
+
+// desc
+.button-sort_desc {
+    .button-sort__desc path {
+        fill: @body-color;
+    }
+}
+
+@media (hover: hover) {
+    .button-sort__asc,
+    .button-sort__desc {
+        path {
+            transition: fill .2s;
+        }
+    }
+    .button-sort:hover {
+        .button-sort__asc,
+        .button-sort__desc {
+            path {
+                fill: @color-green;
+            }
+        }
+    }
+}
