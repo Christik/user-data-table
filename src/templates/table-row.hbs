@@ -1,0 +1,39 @@
+<tr>
+    <td class="td-photo">
+        <div class="photo">
+            <img src="{{ photo }}" width="50" height="50" alt="{{ name }}">
+        </div>
+    </td>
+    <td>
+        {{ name }}
+    </td>
+    <td>
+        {{ dob.format }}
+    </td>
+    <td>
+        {{#ifEquals gender 'male'}}
+            <div class="badge badge_blue">
+        {{/ifEquals}}    
+
+        {{#ifEquals gender 'female'}}
+            <div class="badge badge_pink">
+        {{/ifEquals}}        
+            {{ gender }}
+        </div>
+    </td>
+    <td nowrap>
+        {{ id }}
+    </td>
+    <td>
+        <button type="button"
+                class="button-action"
+                title="Delete user"
+                data-id="{{ id }}"
+                data-delete>
+            Detele
+            <svg viewBox="0 0 24 24" class="button-action__icon">
+                <path d="M18,22H6V8H4v13.7C4,22.8,4.9,24,6,24h12c1.1,0,2-1.2,2-2.3V8h-2V22z M15,4V2H9v2H2v2h20V4H15z M9,10v10h2V10H9  z M13,10v10h2V10H13z" />
+            </svg>                                
+        </button>
+    </td>
+</tr>

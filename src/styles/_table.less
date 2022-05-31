@@ -129,3 +129,30 @@ td {
         }
     }
 }
+
+//
+// Loading
+//
+
+.tr-loading td {
+    height: 5rem;
+    position: relative;
+    vertical-align: middle;
+
+    &:before {
+        content: '';
+        display: block;
+        width: 1.5rem;
+        height: 1.5rem;
+        margin: auto;
+        background: url('@{path-images}/loading.svg') no-repeat 50% 50%;
+        background-size: 100% 100%;
+        transform: rotate(0);
+        animation: loading 1.5s linear infinite;
+    }
+}
+
+@keyframes loading {
+    from { transform: rotate(0); }
+    to { transform: rotate(360deg); }
+}
