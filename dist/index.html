@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Data Table</title>
+<script defer src="index.bundle.js"></script></head>
+<body>
+    <div class="container">
+        <div class="section">
+            <div class="section__head">
+                <h1 class="section__title">
+                    User List
+                </h1>
+                <div class="section__buttons">
+                    <button type="button"
+                            class="button"
+                            data-show="female">
+                        Show female
+                    </button>
+                    <button type="button"
+                            class="button"
+                            data-add-user>
+                        Add user
+                    </button>
+                </div><!--.section__buttons-->
+            </div><!--.section__head-->
+
+            <div class="section__body">
+                <div class="table-responsive">
+                    <table data-content>
+                        <thead>
+                            <tr>
+                                <th>Photo</th>
+                                <th class="th-sort">
+                                    Name
+                                    <button class="button-sort"
+                                            data-sort
+                                            data-sort-key="name">
+                                        Sort
+                                        <svg viewBox="0 0 24 24"
+                                            class="button-sort__asc">
+                                            <path d="M17.6568 8.96219L16.2393 10.3731L12.9843 7.10285L12.9706 20.7079L10.9706 20.7059L10.9843 7.13806L7.75404 10.3532L6.34314 8.93572L12.0132 3.29211L17.6568 8.96219Z" />
+                                        </svg>
+                                        <svg viewBox="0 0 24 24"
+                                            class="button-sort__desc">
+                                            <path d="M17.6568 8.96219L16.2393 10.3731L12.9843 7.10285L12.9706 20.7079L10.9706 20.7059L10.9843 7.13806L7.75404 10.3532L6.34314 8.93572L12.0132 3.29211L17.6568 8.96219Z" />
+                                        </svg>
+                                    </button>
+                                </th>
+                                <th class="th-sort">
+                                    Date of Birth
+                                    <button class="button-sort"
+                                            data-sort
+                                            data-sort-key="dob">
+                                        Sort
+                                        <svg viewBox="0 0 24 24"
+                                            class="button-sort__asc">
+                                            <path d="M17.6568 8.96219L16.2393 10.3731L12.9843 7.10285L12.9706 20.7079L10.9706 20.7059L10.9843 7.13806L7.75404 10.3532L6.34314 8.93572L12.0132 3.29211L17.6568 8.96219Z" />
+                                        </svg>
+                                        <svg viewBox="0 0 24 24"
+                                            class="button-sort__desc">
+                                            <path d="M17.6568 8.96219L16.2393 10.3731L12.9843 7.10285L12.9706 20.7079L10.9706 20.7059L10.9843 7.13806L7.75404 10.3532L6.34314 8.93572L12.0132 3.29211L17.6568 8.96219Z" />
+                                        </svg>
+                                    </button>
+                                </th>
+                                <th>Gender</th>
+                                <th>ID</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tdoby>
+                            <tr class="tr-loading">
+                                <td colspan="6"></td>
+                            </tr>
+                        </tdoby>
+                    </table>
+                </div><!--.table-responsive-->
+            </div><!--.section__body-->
+        </div><!--.section-->
+    </div><!--.container-->
+</body>
+</html>
