@@ -14,15 +14,16 @@ const defaultUsersCount = 5;
 // Список пользователей
 const users = [];
 
-// Элементы интерфейсы
-const contentElement = document.querySelector('[data-content]').querySelector('tbody');
+// Элементы интерфейса
+const contentElement = document.querySelector('[data-content]');
+const tableBodyElement = contentElement.querySelector('tbody');
 const buttonAddUser = document.querySelector('[data-add-user');
 const buttonShow = document.querySelector('[data-show]');
 
 // Обновить отображение списка пользователей
 const updateUsersView = (users) => {
     const template = templateRows({users});
-    contentElement.innerHTML = template;
+    tableBodyElement.innerHTML = template;
 };
 
 // Создать нового пользователя
@@ -95,6 +96,15 @@ const showButtonClickHandle = (event) => {
     button.textContent = `Show ${button.dataset.show}`;
 };
 
+// Сброс
+const resetSortView = () => {
+    const sortButtons = document.querySelectorAll('[data-sort]');
+
+    sortButtons.forEach((sortButton) => {
+        sortButton.dataset.sort = '';
+    });
+};
+
 // Обработчик клика по кнопке 'Add user'
 const addUserButtonClickHandle = async (event) => {
     const button = event.target;
@@ -104,8 +114,10 @@ const addUserButtonClickHandle = async (event) => {
     users.push(newUser);
     const template = templateRow(newUser);
 
-    contentElement.insertAdjacentHTML('beforeend', template);
+    tableBodyElement.insertAdjacentHTML('beforeend', template);
     toggleButtonLoadingStatus(button);
+
+    resetSortView();
 };
 
 // Получить индекс пользователя по его id
@@ -139,6 +151,54 @@ const deleteButtonClickHandle = (event) => {
     deleteUserById(id);
 };
 
+// Обновить data-sort у кнопки
+const updateSortButtonData = (button, direction) => {
+    resetSortView();
+
+    if (direction === '') {
+        button.dataset.sort = 'desc';
+    } else {
+        button.dataset.sort = (direction === 'asc') ? 'desc' : 'asc';
+    }
+};
+
+// Сортировать список пользователей
+const sortUsers = (users, key, direction) => {
+    if (direction === '') {
+        direction = 'asc';
+    }
+    const sortResult = (direction === 'asc') ? 1 : -1;
+
+    users.sort((a, b) => {
+        const isDob = (key === 'dob');
+        const previousElement = isDob ? a[key].date : a[key];
+        const nextElement = isDob ? b[key].date : b[key];
+
+        if (previousElement > nextElement) {
+            return sortResult;
+        }
+        if (previousElement < nextElement) {
+            return -sortResult;
+        }
+        return 0;
+    });
+};
+
+// Обработчик клика по кнопке сортировки
+const sortButtonClickHandle = (event) => {
+    const button = event.target.closest('[data-sort]');
+
+    if (!button) {
+        return;
+    }
+
+    let { sort: sortDirection, sortKey } = button.dataset;
+
+    sortUsers(users, sortKey, sortDirection);
+    updateUsersView(users);
+    updateSortButtonData(button, sortDirection);
+};
+
 // Клик по кнопке 'Show Female'
 buttonShow.addEventListener('click', (event) => {
     showButtonClickHandle(event);
@@ -149,7 +209,12 @@ buttonAddUser.addEventListener('click', (event) => {
     addUserButtonClickHandle(event);
 });
 
-// Клик по кнопке 'Delete'
-contentElement.addEventListener('click', (event) => {
+// Клик по кнопке 'Delete' через делегирование
+tableBodyElement.addEventListener('click', (event) => {
     deleteButtonClickHandle(event);
+});
+
+// Клик по кнопке соритровки через делегирование
+contentElement.addEventListener('click', (event) => {
+    sortButtonClickHandle(event);
 });

@@ -91,23 +91,23 @@ td {
         fill: fade(@body-color, 30%);
     }
 }
-.button-sort__desc {
+.button-sort__asc {
     left: 25%;
 }
-.button-sort__asc {
+.button-sort__desc {
     transform: translate(-50%,-50%) rotate(180deg);
     left: 75%
 }
 
 // asc
-.button-sort_asc {
+.button-sort[data-sort="asc"] {
     .button-sort__asc path {
         fill: @body-color;
     }
 }
 
 // desc
-.button-sort_desc {
+.button-sort[data-sort="desc"] {
     .button-sort__desc path {
         fill: @body-color;
     }
