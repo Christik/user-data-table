@@ -9,21 +9,21 @@ Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
 });
 
 // Дефолтное количество пользователей
-const defaultUsersCount = 5;
+const USER_COUNT = 5;
 
 // Список пользователей
 const users = [];
 
 // Элементы интерфейса
-const contentElement = document.querySelector('[data-content]');
-const tableBodyElement = contentElement.querySelector('tbody');
-const buttonAddUser = document.querySelector('[data-add-user');
-const buttonShow = document.querySelector('[data-show]');
+const contentEl = document.querySelector('[data-content]');
+const tableBodyEl = contentEl.querySelector('tbody');
+const buttonAddUserEl = document.querySelector('[data-add-user');
+const buttonShowEl = document.querySelector('[data-show]');
 
 // Обновить отображение списка пользователей
 const updateUsersView = (users) => {
     const template = templateRows({users});
-    tableBodyElement.innerHTML = template;
+    tableBodyEl.innerHTML = template;
 };
 
 // Создать нового пользователя
@@ -60,7 +60,7 @@ const createUsersList = async (list, count) => {
 };
 
 const init = async () => {
-    await createUsersList(users, defaultUsersCount);
+    await createUsersList(users, USER_COUNT);
     updateUsersView(users);
 };
 
@@ -98,9 +98,9 @@ const showButtonClickHandle = (event) => {
 
 // Сброс
 const resetSortView = () => {
-    const sortButtons = document.querySelectorAll('[data-sort]');
+    const buttonsSortEl = document.querySelectorAll('[data-sort]');
 
-    sortButtons.forEach((sortButton) => {
+    buttonsSortEl.forEach((sortButton) => {
         sortButton.dataset.sort = '';
     });
 };
@@ -114,7 +114,7 @@ const addUserButtonClickHandle = async (event) => {
     users.push(newUser);
     const template = templateRow(newUser);
 
-    tableBodyElement.insertAdjacentHTML('beforeend', template);
+    tableBodyEl.insertAdjacentHTML('beforeend', template);
     toggleButtonLoadingStatus(button);
 
     resetSortView();
@@ -200,21 +200,21 @@ const sortButtonClickHandle = (event) => {
 };
 
 // Клик по кнопке 'Show Female'
-buttonShow.addEventListener('click', (event) => {
+buttonShowEl.addEventListener('click', (event) => {
     showButtonClickHandle(event);
 });
 
 // Клик по кнопке 'Add user'
-buttonAddUser.addEventListener('click', (event) => {
+buttonAddUserEl.addEventListener('click', (event) => {
     addUserButtonClickHandle(event);
 });
 
 // Клик по кнопке 'Delete' через делегирование
-tableBodyElement.addEventListener('click', (event) => {
+tableBodyEl.addEventListener('click', (event) => {
     deleteButtonClickHandle(event);
 });
 
 // Клик по кнопке соритровки через делегирование
-contentElement.addEventListener('click', (event) => {
+contentEl.addEventListener('click', (event) => {
     sortButtonClickHandle(event);
 });
